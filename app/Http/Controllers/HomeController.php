@@ -10,4 +10,15 @@ class HomeController extends Controller
     {
         return view('home.index');
     }
+
+    public function contact(): View
+    {
+        $viewData = [];
+        $viewData["title"] = "Contact";
+        $viewData["subtitle"] =  "Contact";
+        $viewData["email"] = "ejemplo@mail.com";
+        $viewData["number"] = "1234567890";
+        return view('home.contact')->with("viewData", $viewData);
+  
+    }
 }
