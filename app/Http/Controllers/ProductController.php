@@ -10,10 +10,10 @@ use Illuminate\View\View;
 class ProductController extends Controller
 {
     public static $products = [
-        ["id"=>"1", "name"=>"TV", "description"=>"Best TV", "price"=>"1.500.000"],
-        ["id"=>"2", "name"=>"iPhone", "description"=>"Best iPhone", "price"=>"3.000.000"],
-        ["id"=>"3", "name"=>"Chromecast", "description"=>"Best Chromecast", "price"=>"250.000"],
-        ["id"=>"4", "name"=>"Glasses", "description"=>"Best Glasses", "price"=>"100.000"]
+        ["id"=>"1", "name"=>"TV", "description"=>"Best TV", "price"=>"10"],
+        ["id"=>"2", "name"=>"iPhone", "description"=>"Best iPhone", "price"=>"3000000"],
+        ["id"=>"3", "name"=>"Chromecast", "description"=>"Best Chromecast", "price"=>"250000"],
+        ["id"=>"4", "name"=>"Glasses", "description"=>"Best Glasses", "price"=>"100000"]
     ];
 
     public function index(): View

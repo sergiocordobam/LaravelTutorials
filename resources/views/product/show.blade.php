@@ -13,7 +13,11 @@
            {{ $viewData["product"]["name"] }}
         </h5>
         <p class="card-text">{{ $viewData["product"]["description"] }}</p>
-        <p class="card-text">{{ $viewData["product"]["price"] }}</p>
+        @if (intval($viewData["product"]["price"]) > 10)
+          <p class="red">{{ $viewData["product"]["price"] }}</p>
+        @else
+          <p class="card-text">{{ $viewData["product"]["price"] }}</p>
+        @endif
       </div>
     </div>
   </div>
