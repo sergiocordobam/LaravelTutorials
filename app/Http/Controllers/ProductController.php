@@ -10,7 +10,7 @@ use Illuminate\View\View;
 class ProductController extends Controller
 {
     public static $products = [
-        ["id"=>"1", "name"=>"TV", "description"=>"Best TV", "price"=>"10"],
+        ["id"=>"1", "name"=>"TV", "description"=>"Best TV", "price"=>"100"],
         ["id"=>"2", "name"=>"iPhone", "description"=>"Best iPhone", "price"=>"3000000"],
         ["id"=>"3", "name"=>"Chromecast", "description"=>"Best Chromecast", "price"=>"250000"],
         ["id"=>"4", "name"=>"Glasses", "description"=>"Best Glasses", "price"=>"100000"]
