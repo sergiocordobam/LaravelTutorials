@@ -61,7 +61,11 @@ class ProductController extends Controller
             "name" => "required",
             "price" => ["required", "gt:0"]
         ]);
-        dd($request->all());
+        //dd($request->all());
         //here will be the code to call the model and save it to the database
+        $viewData = []; //to be sent to the view
+        $viewData["title"] = "Product created";
+        $viewData["description"] = "Product created";
+        return view('product.created')->with("viewData", $viewData);
     }
 }
