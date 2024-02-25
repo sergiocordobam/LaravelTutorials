@@ -6,22 +6,16 @@ use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public static $products = [
-        ["id"=>"1", "name"=>"TV", "description"=>"Best TV", "price"=>"100"],
-        ["id"=>"2", "name"=>"iPhone", "description"=>"Best iPhone", "price"=>"3000000"],
-        ["id"=>"3", "name"=>"Chromecast", "description"=>"Best Chromecast", "price"=>"250000"],
-        ["id"=>"4", "name"=>"Glasses", "description"=>"Best Glasses", "price"=>"100000"]
-    ];
-
     public function index(): View
     {
         $viewData = [];
         $viewData["title"] = "Products - Online Store";
         $viewData["subtitle"] =  "List of products";
-        $viewData["products"] = ProductController::$products;
+        $viewData["products"] = Product::all();
         return view('product.index')->with("viewData", $viewData);
     }
 
@@ -37,7 +31,7 @@ class ProductController extends Controller
         */
 
         try{
-            $product = ProductController::$products[$id-1];
+            $product = Product::findOrFail($id);
             $viewData["title"] = $product["name"]." - Online Store";
             $viewData["subtitle"] =  $product["name"]." - Product information";
             $viewData["product"] = $product;
@@ -66,6 +60,9 @@ class ProductController extends Controller
         $viewData = []; //to be sent to the view
         $viewData["title"] = "Product created";
         $viewData["description"] = "Product created";
+        Product::create($request->only(["name","price"]));
         return view('product.created')->with("viewData", $viewData);
+
+        //return back();
     }
 }
